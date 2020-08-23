@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package >
+    <metadata>
+        <id>$id$</id>
+        <version>$version$</version>
+        <title>$title$</title>
+        <authors>YanZhiwei</authors>
+        <owners>$author$</owners>
+        <icon>nugetico.png</icon>
+        <license type="expression">MIT</license>
+        <projectUrl>https://github.com/YanZhiwei/XiangJiang.Infrastructure.Windows.Api</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Windows Api tool library,using the document: https://github.com/YanZhiwei/XiangJiang.Infrastructure.Windows.Api/wiki; Welcome to pull request or star.</description>
+        <copyright>Copyright YanZhiwei 2020</copyright>
+        <tags>DotNet Win32Api</tags>
+        <dependencies>
+            <group targetFramework=".NETFramework4.6.1">
+                <dependency id="XiangJiang" version="1.0.3" />
+            </group>
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="..\.assets\nugetico.png" target="nugetico.png" />
+    </files>
+</package>
