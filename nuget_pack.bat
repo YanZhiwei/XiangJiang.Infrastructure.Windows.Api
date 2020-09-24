@@ -1,1 +1,1 @@
-nuget pack XiangJiang.Infrastructure.Windows.Api\XiangJiang.Infrastructure.Windows.Api.csproj -Prop Configuration=Release -IncludeReferencedProjects
+nuget pack XiangJiang.Windows.Api\XiangJiang.Windows.Api.csproj -Prop Configuration=Release -IncludeReferencedProjects
