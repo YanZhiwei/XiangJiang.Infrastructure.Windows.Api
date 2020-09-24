@@ -1,6 +1,6 @@
-﻿using XiangJiang.Infrastructure.Windows.Api.Enums;
+﻿using XiangJiang.Windows.Api.Enums;
 
-namespace XiangJiang.Infrastructure.Windows.Api.Models
+namespace XiangJiang.Windows.Api.Models
 {
     /// <summary>
     ///     Windows Session 信息

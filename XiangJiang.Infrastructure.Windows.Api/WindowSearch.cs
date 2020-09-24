@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
-using XiangJiang.Infrastructure.Windows.Api.Core;
-using XiangJiang.Infrastructure.Windows.Api.Models;
+using XiangJiang.Windows.Api.Core;
+using XiangJiang.Windows.Api.Models;
 
-namespace XiangJiang.Infrastructure.Windows.Api
+namespace XiangJiang.Windows.Api
 {
     /// <summary>
     ///     Windows 搜索

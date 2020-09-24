@@ -2,10 +2,10 @@
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Text;
-using XiangJiang.Infrastructure.Windows.Api.Enums;
-using XiangJiang.Infrastructure.Windows.Api.Models;
+using XiangJiang.Windows.Api.Enums;
+using XiangJiang.Windows.Api.Models;
 
-namespace XiangJiang.Infrastructure.Windows.Api.Core
+namespace XiangJiang.Windows.Api.Core
 {
     /// <summary>
     ///     Windows API

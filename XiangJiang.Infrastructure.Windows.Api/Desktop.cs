@@ -1,8 +1,8 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
-using XiangJiang.Infrastructure.Windows.Api.Core;
+using XiangJiang.Windows.Api.Core;
 
-namespace XiangJiang.Infrastructure.Windows.Api
+namespace XiangJiang.Windows.Api
 {
     /// <summary>
     ///     Desktop 操作

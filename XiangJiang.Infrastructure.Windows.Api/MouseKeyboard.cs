@@ -3,11 +3,11 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
-using XiangJiang.Infrastructure.Windows.Api.Core;
-using XiangJiang.Infrastructure.Windows.Api.Enums;
-using XiangJiang.Infrastructure.Windows.Api.Models;
+using XiangJiang.Windows.Api.Core;
+using XiangJiang.Windows.Api.Enums;
+using XiangJiang.Windows.Api.Models;
 
-namespace XiangJiang.Infrastructure.Windows.Api
+namespace XiangJiang.Windows.Api
 {
     /// <summary>
     ///     键盘鼠标操作

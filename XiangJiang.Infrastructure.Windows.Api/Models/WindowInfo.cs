@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Text;
-using XiangJiang.Infrastructure.Windows.Api.Core;
+using XiangJiang.Windows.Api.Core;
 
-namespace XiangJiang.Infrastructure.Windows.Api.Models
+namespace XiangJiang.Windows.Api.Models
 {
     /// <summary>
     ///     窗口句柄信息

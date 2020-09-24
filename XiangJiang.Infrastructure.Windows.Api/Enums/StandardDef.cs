@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace XiangJiang.Infrastructure.Windows.Api.Enums
+namespace XiangJiang.Windows.Api.Enums
 {
     /// <summary>
     /// WTS_CONNECTSTATE_CLASS

@@ -3,10 +3,10 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Text;
 using System.Threading;
-using XiangJiang.Infrastructure.Windows.Api.Core;
-using XiangJiang.Infrastructure.Windows.Api.Enums;
+using XiangJiang.Windows.Api.Core;
+using XiangJiang.Windows.Api.Enums;
 
-namespace XiangJiang.Infrastructure.Windows.Api
+namespace XiangJiang.Windows.Api
 {
     /// <summary>
     ///     Window 操作

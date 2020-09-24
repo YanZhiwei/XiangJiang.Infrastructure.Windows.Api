@@ -7,8 +7,8 @@
     <ProjectGuid>{09FEEDF5-8675-4145-B9A6-EC998606D13E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XiangJiang.Infrastructure.Windows.Api</RootNamespace>
-    <AssemblyName>XiangJiang.Infrastructure.Windows.Api</AssemblyName>
+    <RootNamespace>XiangJiang.Windows.Api</RootNamespace>
+    <AssemblyName>XiangJiang.Windows.Api</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

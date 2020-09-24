@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
-using XiangJiang.Infrastructure.Windows.Api.Enums;
+using XiangJiang.Windows.Api.Enums;
 
-namespace XiangJiang.Infrastructure.Windows.Api.Models
+namespace XiangJiang.Windows.Api.Models
 {
     // ReSharper disable once InconsistentNaming
     [StructLayout(LayoutKind.Sequential)]

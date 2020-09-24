@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.InteropServices;
 
-namespace XiangJiang.Infrastructure.Windows.Api.Core
+namespace XiangJiang.Windows.Api.Core
 {
     /// <summary>
     ///     Windows Api自定义异常
