@@ -44,23 +44,36 @@ namespace XiangJiang.Windows.Api.Enums
 
     public enum WTS_INFO_CLASS
     {
-        WTSInitialProgram,
-        WTSApplicationName,
-        WTSWorkingDirectory,
-        WTSOEMId,
-        WTSSessionId,
-        WTSUserName,
-        WTSWinStationName,
-        WTSDomainName,
-        WTSConnectState,
-        WTSClientBuildNumber,
-        WTSClientName,
-        WTSClientDirectory,
-        WTSClientProductId,
-        WTSClientHardwareId,
-        WTSClientAddress,
-        WTSClientDisplay,
-        WTSClientProtocolType
+        WTSInitialProgram = 0,
+        WTSApplicationName = 1,
+        WTSWorkingDirectory = 2,
+        WTSOEMId = 3,
+        WTSSessionId = 4,
+        WTSUserName = 5,
+        WTSWinStationName = 6,
+        WTSDomainName = 7,
+        WTSConnectState = 8,
+        WTSClientBuildNumber = 9,
+        WTSClientName = 10,
+        WTSClientDirectory = 11,
+        WTSClientProductId = 12,
+        WTSClientHardwareId = 13,
+        WTSClientAddress = 14,
+        WTSClientDisplay = 15,
+        WTSClientProtocolType = 16,
+        WTSIdleTime = 17,
+        WTSLogonTime = 18,
+        WTSIncomingBytes = 19,
+        WTSOutgoingBytes = 20,
+        WTSIncomingFrames = 21,
+        WTSOutgoingFrames = 22,
+        WTSClientInfo = 23,
+        WTSSessionInfo = 24,
+        WTSSessionInfoEx = 25,
+        WTSConfigInfo = 26,
+        WTSValidationInfo = 27,
+        WTSSessionAddressV4 = 28,
+        WTSIsRemoteSession = 29
     }
 
     internal enum SysCommands
@@ -855,5 +868,78 @@ namespace XiangJiang.Windows.Api.Enums
         public static int VK_X = 0x58;
         public static int VK_Y = 0x59;
         public static int VK_Z = 0x5A;
+    }
+
+
+    [Flags]
+    public enum MouseFlags
+    {
+        Move = 0x0001,
+        LeftDown = 0x0002,
+        LeftUp = 0x0004,
+        RightDown = 0x0008,
+        RightUp = 0x0010,
+        Absolute = 0x8000,
+        MiddleDown = 0x0020,
+        MiddleUp = 0x0040,
+        Scroll = 2048
+    }
+
+    [Flags]
+    internal enum StandardAccess : uint
+    {
+        DELETE = 0x00010000,
+        READ_CONTROL = 0x00020000,
+        WRITE_DAC = 0x00040000,
+        WRITE_OWNER = 0x00080000,
+        SYNCHRONIZE = 0x00100000,
+
+        STANDARD_RIGHTS_REQUIRED = 0x000F0000,
+
+        STANDARD_RIGHTS_READ = 0x00020000,
+        STANDARD_RIGHTS_WRITE = 0x00020000,
+        STANDARD_RIGHTS_EXECUTE = 0x00020000,
+
+        STANDARD_RIGHTS_ALL = 0x001F0000,
+
+        SPECIFIC_RIGHTS_ALL = 0x0000FFFF,
+
+        ACCESS_SYSTEM_SECURITY = 0x01000000,
+
+        MAXIMUM_ALLOWED = 0x02000000,
+
+        GENERIC_READ = 0x80000000,
+        GENERIC_WRITE = 0x40000000,
+        GENERIC_EXECUTE = 0x20000000,
+        GENERIC_ALL = 0x10000000,
+
+        DESKTOP_READOBJECTS = 0x00000001,
+        DESKTOP_CREATEWINDOW = 0x00000002,
+        DESKTOP_CREATEMENU = 0x00000004,
+        DESKTOP_HOOKCONTROL = 0x00000008,
+        DESKTOP_JOURNALRECORD = 0x00000010,
+        DESKTOP_JOURNALPLAYBACK = 0x00000020,
+        DESKTOP_ENUMERATE = 0x00000040,
+        DESKTOP_WRITEOBJECTS = 0x00000080,
+        DESKTOP_SWITCHDESKTOP = 0x00000100,
+
+        WINSTA_ENUMDESKTOPS = 0x00000001,
+        WINSTA_READATTRIBUTES = 0x00000002,
+        WINSTA_ACCESSCLIPBOARD = 0x00000004,
+        WINSTA_CREATEDESKTOP = 0x00000008,
+        WINSTA_WRITEATTRIBUTES = 0x00000010,
+        WINSTA_ACCESSGLOBALATOMS = 0x00000020,
+        WINSTA_EXITWINDOWS = 0x00000040,
+        WINSTA_ENUMERATE = 0x00000100,
+        WINSTA_READSCREEN = 0x00000200,
+
+        WINSTA_ALL_ACCESS = 0x0000037F
+    }
+
+    public enum WTS_TYPE_CLASS
+    {
+        WTSTypeProcessInfoLevel0,
+        WTSTypeProcessInfoLevel1,
+        WTSTypeSessionInfoLevel1
     }
 }

@@ -248,6 +248,10 @@ namespace XiangJiang.Windows.Api.Core
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
         internal static extern bool IsIconic(IntPtr hWnd);
+
+        [DllImport("wtsapi32.dll")]
+        public static extern void WTSFreeMemoryEx(WTS_TYPE_CLASS wtsTypeClass, IntPtr pMemory, uint numberOfEntries
+        );
         #endregion Methods
     }
 }
