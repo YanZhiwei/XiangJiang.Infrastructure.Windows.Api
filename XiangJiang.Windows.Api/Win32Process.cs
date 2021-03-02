@@ -18,8 +18,8 @@ namespace XiangJiang.Windows.Api
 
             var targetSession = GetSessionId(targetWindowsUser);
             if (targetSession.ConnectionState != WTS_CONNECTSTATE_CLASS.WTSActive)
-                throw new Win32ErrorCodeException($"TargetWindowsUser:{targetWindowsUser} not logged on",
-                    Win32ErrorCode.UserNotSignIn);
+                throw new Win32ErrorCodeException($"TargetWindowsUser:{targetWindowsUser} not active",
+                    Win32ErrorCode.UserNotActive);
 
             if (!Win32Api.WTSQueryUserToken(targetSession.SessionId, out var hToken))
                 throw new Win32ErrorCodeException($"TargetWindowsUser:{targetWindowsUser} get token failed",
@@ -62,15 +62,13 @@ namespace XiangJiang.Windows.Api
         {
             var sessions = WindowsCore.GetSessions();
 
-            if (sessions?.Any() ?? false)
-            {
-                var targetSession = sessions.FirstOrDefault(c =>
-                    c.UserName.Equals(targetWindowsUser, StringComparison.OrdinalIgnoreCase));
-                return targetSession;
-            }
+            if (!(sessions?.Any() ?? false))
+                throw new Win32ErrorCodeException($"TargetWindowsUser:{targetWindowsUser} does not exist",
+                    Win32ErrorCode.UserNotFound);
+            var targetSession = sessions.FirstOrDefault(c =>
+                c.UserName.Equals(targetWindowsUser, StringComparison.OrdinalIgnoreCase));
+            return targetSession;
 
-            throw new Win32ErrorCodeException($"TargetWindowsUser:{targetWindowsUser} does not exist",
-                Win32ErrorCode.UserNotFound);
         }
 
         private static IntPtr GetLinkedToken(IntPtr hToken)
