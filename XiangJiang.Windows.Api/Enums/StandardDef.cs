@@ -2,6 +2,13 @@
 
 namespace XiangJiang.Windows.Api.Enums
 {
+    public sealed class StandardDef
+    {
+        public const int CreateUnicodeEnvironment = 0x00000400;
+        public const int NormalPriorityClass = 0x20;
+        public const uint ExtendedStartupInfoPresent = 0x00080000;
+    }
+
     /// <summary>
     /// WTS_CONNECTSTATE_CLASS
     /// </summary>
@@ -941,5 +948,63 @@ namespace XiangJiang.Windows.Api.Enums
         WTSTypeProcessInfoLevel0,
         WTSTypeProcessInfoLevel1,
         WTSTypeSessionInfoLevel1
+    }
+
+    public enum TokenInformationClass
+    {
+        TokenUser = 1,
+
+        TokenGroups,
+
+        TokenPrivileges,
+        TokenOwner,
+
+        TokenPrimaryGroup,
+
+        TokenDefaultDacl,
+
+        TokenSource,
+
+        TokenType,
+
+        TokenImpersonationLevel,
+
+        TokenStatistics,
+
+        TokenRestrictedSids,
+
+        TokenSessionId,
+
+        TokenGroupsAndPrivileges,
+
+        TokenSessionReference,
+
+        TokenSandBoxInert,
+
+        TokenAuditPolicy,
+        TokenOrigin,
+
+        TokenElevationType,
+
+        TokenLinkedToken,
+
+        TokenElevation,
+
+        TokenHasRestrictions,
+
+        TokenAccessInformation,
+
+        TokenVirtualizationAllowed,
+
+        TokenVirtualizationEnabled,
+
+        TokenIntegrityLevel,
+        TokenUiAccess,
+
+        TokenMandatoryPolicy,
+
+        TokenLogonSid,
+
+        MaxTokenInfoClass
     }
 }

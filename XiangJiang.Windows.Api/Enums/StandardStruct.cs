@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System;
+using System.Runtime.InteropServices;
 
 namespace XiangJiang.Windows.Api.Enums
 {
@@ -22,5 +23,26 @@ namespace XiangJiang.Windows.Api.Enums
         public uint SessionId;
         public WTS_CONNECTSTATE_CLASS SessionState;
         public int SessionFlags;
+    }
+
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
+    public readonly struct ProcessInformation
+    {
+        public readonly IntPtr hProcess;
+        public readonly IntPtr hThread;
+        public readonly int dwProcessId;
+        public readonly int dwThreadId;
+    }
+
+    public struct TokenUser
+    {
+        public SidAndAttributes User;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct SidAndAttributes
+    {
+        public IntPtr Sid;
+        public int Attributes;
     }
 }

@@ -202,4 +202,34 @@ namespace XiangJiang.Windows.Api.Models
         [MarshalAs(UnmanagedType.LPStr)] public readonly string pWinStationName;
         public readonly WTS_CONNECTSTATE_CLASS State;
     }
+
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
+    internal struct StartupInfoEx
+    {
+        public StartupInfo StartupInfo;
+        public readonly IntPtr lpAttributeList;
+    }
+
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
+    internal struct StartupInfo
+    {
+        public int cb;
+        public readonly string lpReserved;
+        public readonly string lpDesktop;
+        public readonly string lpTitle;
+        public readonly int dwX;
+        public readonly int dwY;
+        public readonly int dwXSize;
+        public readonly int dwYSize;
+        public readonly int dwXCountChars;
+        public readonly int dwYCountChars;
+        public readonly int dwFillAttribute;
+        public readonly int dwFlags;
+        public readonly short wShowWindow;
+        public readonly short cbReserved2;
+        public readonly IntPtr lpReserved2;
+        public readonly IntPtr hStdInput;
+        public readonly IntPtr hStdOutput;
+        public readonly IntPtr hStdError;
+    }
 }

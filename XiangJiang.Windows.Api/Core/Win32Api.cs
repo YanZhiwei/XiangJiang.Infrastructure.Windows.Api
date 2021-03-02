@@ -252,6 +252,31 @@ namespace XiangJiang.Windows.Api.Core
         [DllImport("wtsapi32.dll")]
         public static extern void WTSFreeMemoryEx(WTS_TYPE_CLASS wtsTypeClass, IntPtr pMemory, uint numberOfEntries
         );
+
+        [DllImport("userenv.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        internal static extern bool CreateEnvironmentBlock(ref IntPtr lpEnvironment, IntPtr hToken, bool bInherit);
+
+        [DllImport("ADVAPI32.DLL", SetLastError = true, CharSet = CharSet.Auto)]
+        internal static extern bool CreateProcessAsUser(IntPtr hToken, string lpApplicationName, string lpCommandLine,
+            IntPtr lpProcessAttributes, IntPtr lpThreadAttributes,
+            bool bInheritHandles, uint dwCreationFlags, IntPtr lpEnvironment, string lpCurrentDirectory,
+            ref StartupInfoEx lpStartupInfo, out ProcessInformation lpProcessInformation);
+
+        [DllImport("advapi32.dll", SetLastError = true)]
+        internal static extern bool GetTokenInformation(
+            IntPtr tokenHandle,
+            TokenInformationClass tokenInformationClass,
+            IntPtr tokenInformation,
+            int tokenInformationLength,
+            out int returnLength);
+
+        [DllImport("advapi32", CharSet = CharSet.Auto, SetLastError = true)]
+        internal static extern bool ConvertSidToStringSid(
+            IntPtr pSid,
+            out IntPtr ptrSid);
+
+        [DllImport("kernel32.dll")]
+        internal static extern IntPtr LocalFree(IntPtr hMem);
         #endregion Methods
     }
 }
