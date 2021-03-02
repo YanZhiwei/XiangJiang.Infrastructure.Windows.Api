@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFrameworks>.net5.0-windows;netcoreapp3.1</TargetFrameworks>
      <UseWindowsForms>true</UseWindowsForms>
      <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
      <PackageIcon>nugetico.png</PackageIcon>
@@ -14,7 +13,7 @@
      <PackageLicenseExpression>MIT</PackageLicenseExpression>
      <PackageProjectUrl>https://github.com/YanZhiwei/XiangJiang.Infrastructure.Windows.Api</PackageProjectUrl>
      <RepositoryUrl>https://github.com/YanZhiwei/XiangJiang.Infrastructure.Windows.Api</RepositoryUrl>
-     <Version>2.0.1</Version>
+     <Version>2.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
