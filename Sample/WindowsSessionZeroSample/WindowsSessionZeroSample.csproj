@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="XiangJiang.Logging.Abstractions" Version="1.0.2" />
+    <PackageReference Include="XiangJiang.Logging.File" Version="2.0.2" />
+    <PackageReference Include="XiangJiang.Windows.Service" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\XiangJiang.Windows.Api\XiangJiang.Windows.Api.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="SampleWinFormsApp.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
