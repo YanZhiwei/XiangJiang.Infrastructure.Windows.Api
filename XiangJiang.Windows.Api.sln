@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XiangJiang.Windows.Api", "XiangJiang.Windows.Api\XiangJiang.Windows.Api.csproj", "{9ABBD266-3348-4C25-B930-6D4132639D70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XiangJiang.Windows.Api", "XiangJiang.Windows.Api\XiangJiang.Windows.Api.csproj", "{9ABBD266-3348-4C25-B930-6D4132639D70}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{26AF74E6-709A-4A14-B7B1-78386AC863AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsSessionZeroSample", "Sample\WindowsSessionZeroSample\WindowsSessionZeroSample.csproj", "{694BD6ED-5BE7-4442-A30A-9AB4F8505590}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{9ABBD266-3348-4C25-B930-6D4132639D70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9ABBD266-3348-4C25-B930-6D4132639D70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9ABBD266-3348-4C25-B930-6D4132639D70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{694BD6ED-5BE7-4442-A30A-9AB4F8505590}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{694BD6ED-5BE7-4442-A30A-9AB4F8505590}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{694BD6ED-5BE7-4442-A30A-9AB4F8505590}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{694BD6ED-5BE7-4442-A30A-9AB4F8505590}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{694BD6ED-5BE7-4442-A30A-9AB4F8505590} = {26AF74E6-709A-4A14-B7B1-78386AC863AB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0259C16F-8FB7-41FE-A345-2AF683E9997E}

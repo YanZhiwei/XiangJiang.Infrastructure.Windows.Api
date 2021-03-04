@@ -11,10 +11,16 @@ namespace XiangJiang.Windows.Api
 {
     public sealed class Win32Process
     {
+        public static int Start(string processPath, string targetWindowsUser, bool runAsAdmin)
+        {
+            return Start(processPath, targetWindowsUser, string.Empty, runAsAdmin);
+        }
+
         public static int Start(string processPath, string targetWindowsUser, string args = "",
             bool runAsAdmin = false)
         {
-            Checker.Begin().CheckFileExists(processPath).NotNullOrEmpty(targetWindowsUser, nameof(targetWindowsUser));
+            Checker.Begin().CheckFileExists(processPath)
+                .NotNullOrEmpty(targetWindowsUser, nameof(targetWindowsUser));
 
             var targetSession = GetSessionId(targetWindowsUser);
             if (targetSession.ConnectionState != WTS_CONNECTSTATE_CLASS.WTSActive)
@@ -36,9 +42,10 @@ namespace XiangJiang.Windows.Api
                 args = $" {args}";
 
             var startupInfo = new StartupInfoEx();
+            var token = runAsAdmin ? GetProcessElevation(hToken) : hToken;
             startupInfo.StartupInfo.cb = Marshal.SizeOf(startupInfo);
             var childProcStarted = Win32Api.CreateProcessAsUser(
-                hToken,
+                token,
                 processPath,
                 args,
                 IntPtr.Zero,
@@ -68,26 +75,28 @@ namespace XiangJiang.Windows.Api
             var targetSession = sessions.FirstOrDefault(c =>
                 c.UserName.Equals(targetWindowsUser, StringComparison.OrdinalIgnoreCase));
             return targetSession;
-
         }
 
-        private static IntPtr GetLinkedToken(IntPtr hToken)
+        private static IntPtr GetProcessElevation(IntPtr hToken)
         {
             var tokenInfLength = 0;
-            var result = Win32Api.GetTokenInformation(hToken, TokenInformationClass.TokenLinkedToken, IntPtr.Zero,
+            Win32Api.GetTokenInformation(hToken, TokenInformationClass.TokenLinkedToken, IntPtr.Zero,
                 tokenInfLength, out tokenInfLength);
             var tokenInformation = Marshal.AllocHGlobal(tokenInfLength);
-            result = Win32Api.GetTokenInformation(hToken, TokenInformationClass.TokenLinkedToken, tokenInformation,
+            var result = Win32Api.GetTokenInformation(hToken, TokenInformationClass.TokenLinkedToken, tokenInformation,
                 tokenInfLength, out tokenInfLength);
 
-            if (result)
+            try
             {
-                var tokenUser = (TokenUser) Marshal.PtrToStructure(tokenInformation, typeof(TokenUser));
+                if (!result) throw new Win32ErrorCodeException("GetProcessElevation failed");
+
+                var tokenUser = (TokenUser)Marshal.PtrToStructure(tokenInformation, typeof(TokenUser));
                 return tokenUser.User.Sid;
             }
-
-            Marshal.FreeHGlobal(tokenInformation);
-            return IntPtr.Zero;
+            finally
+            {
+                Marshal.FreeHGlobal(tokenInformation);
+            }
         }
     }
 }
