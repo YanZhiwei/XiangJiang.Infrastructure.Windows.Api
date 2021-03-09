@@ -62,7 +62,29 @@ namespace XiangJiang.Windows.Api
                 throw new Win32ErrorCodeException($"TargetWindowsUser:{targetWindowsUser} start failed",
                     Win32ErrorCode.Win32ErrorProcessStartFailed);
 
-            return tProcessInfo.dwProcessId;
+            var processId = tProcessInfo.dwProcessId;
+            try
+            {
+                if (tProcessInfo.hThread != IntPtr.Zero)
+                    Win32Api.CloseHandle(tProcessInfo.hThread);
+                if (tProcessInfo.hProcess != IntPtr.Zero)
+                    Win32Api.CloseHandle(tProcessInfo.hProcess);
+                if (token != IntPtr.Zero)
+                    Win32Api.CloseHandle(token);
+                if (startupInfo.lpAttributeList != IntPtr.Zero)
+                {
+                    //不再需要参数的时候，要释放内存
+                    Win32Api.DeleteProcThreadAttributeList(startupInfo.lpAttributeList);
+                    Marshal.FreeHGlobal(startupInfo.lpAttributeList);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Win32ErrorCodeException(ex.Message, Win32ErrorCode.Win32ErrorProcessDisposeFailed);
+            }
+
+            return processId;
         }
 
         private static SessionInfo GetSessionId(string targetWindowsUser)

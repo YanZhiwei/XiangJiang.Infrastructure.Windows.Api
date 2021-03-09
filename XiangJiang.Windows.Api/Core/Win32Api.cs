@@ -277,6 +277,10 @@ namespace XiangJiang.Windows.Api.Core
 
         [DllImport("kernel32.dll")]
         internal static extern IntPtr LocalFree(IntPtr hMem);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool DeleteProcThreadAttributeList(IntPtr lpAttributeList);
         #endregion Methods
     }
 }
