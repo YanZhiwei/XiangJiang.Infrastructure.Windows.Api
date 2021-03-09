@@ -19,7 +19,7 @@ namespace XiangJiang.Windows.Api.Core
             var error = Marshal.GetLastWin32Error();
             var innerException = new Win32Exception(error);
             Win32ErrorCode = win32ErrorCode;
-            Message = $"{context}: (Error Code {error}) {innerException.Message}";
+            Message = Win32ErrorCode <= 0 ? $"{context}: (Error Code {error}) {innerException.Message}" : context;
         }
 
         #endregion Constructors
