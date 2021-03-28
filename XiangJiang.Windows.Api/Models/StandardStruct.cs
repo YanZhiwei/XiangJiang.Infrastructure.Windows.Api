@@ -39,19 +39,19 @@ namespace XiangJiang.Windows.Api.Models
         public IntPtr hStdError;
     }
 
-    internal struct INPUT
+    public struct INPUT
     {
         public uint Type;
         public MOUSEKEYBDHARDWAREINPUT Data;
     }
 
     [StructLayout(LayoutKind.Explicit)]
-    internal struct MOUSEKEYBDHARDWAREINPUT
+    public struct MOUSEKEYBDHARDWAREINPUT
     {
         [FieldOffset(0)] public MOUSEINPUT Mouse;
     }
 
-    internal struct MOUSEINPUT
+    public struct MOUSEINPUT
     {
         public int X;
         public int Y;
@@ -62,7 +62,7 @@ namespace XiangJiang.Windows.Api.Models
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    internal struct Rect
+    public struct Rect
     {
         #region Constructors
 
@@ -188,7 +188,7 @@ namespace XiangJiang.Windows.Api.Models
 
     // ReSharper disable once InconsistentNaming
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    internal struct STARTUPINFOEX
+    public struct STARTUPINFOEX
     {
         public STARTUPINFO StartupInfo;
         public IntPtr lpAttributeList;
@@ -196,7 +196,7 @@ namespace XiangJiang.Windows.Api.Models
 
     // ReSharper disable once InconsistentNaming
     [StructLayout(LayoutKind.Sequential)]
-    internal struct WTS_SESSION_INFO
+    public struct WTS_SESSION_INFO
     {
         public readonly int SessionID;
         [MarshalAs(UnmanagedType.LPStr)] public readonly string pWinStationName;
@@ -204,14 +204,14 @@ namespace XiangJiang.Windows.Api.Models
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    internal struct StartupInfoEx
+    public struct StartupInfoEx
     {
         public StartupInfo StartupInfo;
         public readonly IntPtr lpAttributeList;
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
-    internal struct StartupInfo
+    public struct StartupInfo
     {
         public int cb;
         public readonly string lpReserved;

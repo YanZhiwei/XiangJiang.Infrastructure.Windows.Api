@@ -16,13 +16,13 @@ namespace XiangJiang.Windows.Api.Core
 
         internal delegate bool EnumDelegate(IntPtr hWnd, int lParam);
 
-        internal delegate bool EnumDesktopsDelegate(string desktop, IntPtr lParam);
+        public delegate bool EnumDesktopsDelegate(string desktop, IntPtr lParam);
 
-        internal delegate bool EnumDesktopWindowsDelegate(IntPtr hWnd, IntPtr lParam);
+        public delegate bool EnumDesktopWindowsDelegate(IntPtr hWnd, IntPtr lParam);
 
-        internal delegate bool EnumWindowDelegate(IntPtr hwnd, IntPtr lParam);
+        public delegate bool EnumWindowDelegate(IntPtr hwnd, IntPtr lParam);
 
-        internal delegate bool EnumWindowStationsDelegate(string windowsStation, IntPtr lParam);
+        public delegate bool EnumWindowStationsDelegate(string windowsStation, IntPtr lParam);
 
         #endregion Delegates
 
@@ -44,41 +44,41 @@ namespace XiangJiang.Windows.Api.Core
         /// <param name="cbSize">INPUT结构的大小</param>
         /// <returns>成功插入操作事件的个数，如果插入出错可以利用GetLastError来查看错误类型</returns>
         [DllImport("user32.dll")]
-        internal static extern uint SendInput(uint nInputs, [MarshalAs(UnmanagedType.LPArray)] [In]
+        public static extern uint SendInput(uint nInputs, [MarshalAs(UnmanagedType.LPArray)] [In]
             INPUT[] pInputs,
             int cbSize);
 
         [DllImport("user32.dll")]
-        internal static extern bool CloseDesktop(
+        public static extern bool CloseDesktop(
             IntPtr hDesktop
         );
 
         [DllImport("user32.dll")]
-        internal static extern void mouse_event(MouseFlags dwFlags, int dx, int dy, int dwData, IntPtr dwExtraInfo);
+        public static extern void mouse_event(MouseFlags dwFlags, int dx, int dy, int dwData, IntPtr dwExtraInfo);
 
         [DllImport("kernel32.dll", CharSet = CharSet.Auto)]
-        internal static extern bool CloseHandle(IntPtr handle);
+        public static extern bool CloseHandle(IntPtr handle);
 
         [DllImport("user32.dll")]
-        internal static extern bool CloseWindowStation(
+        public static extern bool CloseWindowStation(
             IntPtr winStation
         );
 
         [DllImport("ADVAPI32.DLL", SetLastError = true, CharSet = CharSet.Auto)]
-        internal static extern bool CreateProcessAsUser(IntPtr hToken, string lpApplicationName, string lpCommandLine,
+        public static extern bool CreateProcessAsUser(IntPtr hToken, string lpApplicationName, string lpCommandLine,
             IntPtr lpProcessAttributes, IntPtr lpThreadAttributes,
             bool bInheritHandles, uint dwCreationFlags, string lpEnvironment, string lpCurrentDirectory,
             ref STARTUPINFO lpStartupInfo, out PROCESS_INFORMATION lpProcessInformation);
 
         [DllImport("user32.dll")]
-        internal static extern bool DrawMenuBar(IntPtr hWnd);
+        public static extern bool DrawMenuBar(IntPtr hWnd);
 
 
         [DllImport("user32.dll")]
-        internal static extern bool EnumChildWindows(IntPtr hwnd, EnumWindowDelegate lpEnumFunc, IntPtr lParam);
+        public static extern bool EnumChildWindows(IntPtr hwnd, EnumWindowDelegate lpEnumFunc, IntPtr lParam);
 
         [DllImport("user32.dll")]
-        internal static extern bool EnumDesktops(IntPtr hwinsta, EnumDesktopsDelegate
+        public static extern bool EnumDesktops(IntPtr hwinsta, EnumDesktopsDelegate
             lpEnumFunc, IntPtr lParam);
 
         [DllImport("user32.dll")]
@@ -89,7 +89,7 @@ namespace XiangJiang.Windows.Api.Core
         );
 
         [DllImport("user32.dll")]
-        internal static extern bool EnumWindowStations(EnumWindowStationsDelegate lpEnumFunc,
+        public static extern bool EnumWindowStations(EnumWindowStationsDelegate lpEnumFunc,
             IntPtr lParam);
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace XiangJiang.Windows.Api.Core
         /// <param name="captionName">窗体的标题</param>
         /// <returns>返回窗体句柄</returns>
         [DllImport("user32.dll", EntryPoint = "FindWindow", CharSet = CharSet.Auto)]
-        internal static extern IntPtr FindWindow(string className, string captionName);
+        public static extern IntPtr FindWindow(string className, string captionName);
 
         /// <summary>
         ///     根据句柄判断是否是个窗口
@@ -120,47 +120,47 @@ namespace XiangJiang.Windows.Api.Core
         /// <param name="captionName">标题</param>
         /// <returns>返回控件句柄</returns>
         [DllImport("user32.dll", EntryPoint = "FindWindowEx", CharSet = CharSet.Auto)]
-        internal static extern IntPtr FindWindowEx(IntPtr parentHandle, IntPtr childHandle, string className,
+        public static extern IntPtr FindWindowEx(IntPtr parentHandle, IntPtr childHandle, string className,
             string captionName);
 
         [DllImport("user32.dll")]
-        internal static extern IntPtr FindWindowEx(IntPtr parentHandle, int childAfter, string className,
+        public static extern IntPtr FindWindowEx(IntPtr parentHandle, int childAfter, string className,
             int windowTitle);
 
         [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
-        internal static extern int GetClassName(IntPtr hWnd, StringBuilder lpClassName, int nMaxCount);
+        public static extern int GetClassName(IntPtr hWnd, StringBuilder lpClassName, int nMaxCount);
 
         [DllImport("user32.dll")]
-        internal static extern IntPtr GetDesktopWindow();
+        public static extern IntPtr GetDesktopWindow();
 
         [DllImport("user32.dll")]
-        internal static extern IntPtr GetForegroundWindow();
+        public static extern IntPtr GetForegroundWindow();
 
         [DllImport("user32.dll")]
-        internal static extern int GetMenuItemCount(IntPtr hMenu);
+        public static extern int GetMenuItemCount(IntPtr hMenu);
 
         [DllImport("user32.dll")]
-        internal static extern IntPtr GetSystemMenu(IntPtr hWnd, bool bRevert);
+        public static extern IntPtr GetSystemMenu(IntPtr hWnd, bool bRevert);
 
         [DllImport("user32.dll", SetLastError = true)]
-        internal static extern IntPtr GetThreadDesktop(uint dwThreadId);
+        public static extern IntPtr GetThreadDesktop(uint dwThreadId);
 
         [DllImport("user32.dll")]
-        internal static extern bool GetWindowRect(IntPtr hWnd, out Rect lpRect);
+        public static extern bool GetWindowRect(IntPtr hWnd, out Rect lpRect);
 
         [DllImport("user32.dll", EntryPoint = "GetWindowText",
             ExactSpelling = false, CharSet = CharSet.Auto, SetLastError = true)]
-        internal static extern int GetWindowText(IntPtr hWnd,
+        public static extern int GetWindowText(IntPtr hWnd,
             StringBuilder lpWindowText, int nMaxCount);
 
 
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
-        internal static extern bool IsWindowVisible(IntPtr hWnd);
+        public static extern bool IsWindowVisible(IntPtr hWnd);
 
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        internal static extern IntPtr OpenDesktop(
+        public static extern IntPtr OpenDesktop(
             [MarshalAs(UnmanagedType.LPTStr)] string desktopName,
             uint flags,
             bool inherit,
@@ -168,43 +168,43 @@ namespace XiangJiang.Windows.Api.Core
         );
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        internal static extern IntPtr OpenWindowStation(
+        public static extern IntPtr OpenWindowStation(
             [MarshalAs(UnmanagedType.LPTStr)] string winStationName,
             [MarshalAs(UnmanagedType.Bool)] bool inherit,
             WinStationAccess access
         );
 
         [DllImport("user32.dll")]
-        internal static extern bool PrintWindow(IntPtr hWnd, IntPtr hdcBlt, int nFlags);
+        public static extern bool PrintWindow(IntPtr hWnd, IntPtr hdcBlt, int nFlags);
 
         [DllImport("user32.dll")]
-        internal static extern bool RemoveMenu(IntPtr hMenu, uint uPosition, uint uFlags);
+        public static extern bool RemoveMenu(IntPtr hMenu, uint uPosition, uint uFlags);
 
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        internal static extern int SendMessage(IntPtr hWnd, int wmUser, int wParam, [Out] StringBuilder windowText);
+        public static extern int SendMessage(IntPtr hWnd, int wmUser, int wParam, [Out] StringBuilder windowText);
 
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        internal static extern int SendMessage(IntPtr hWnd, int msg, int wParam, int lParam);
+        public static extern int SendMessage(IntPtr hWnd, int msg, int wParam, int lParam);
 
         [DllImport("user32.dll")]
-        internal static extern bool SetForegroundWindow(IntPtr hWnd);
+        public static extern bool SetForegroundWindow(IntPtr hWnd);
 
 
         [DllImport("user32.dll")]
-        internal static extern IntPtr SetWindowPos(IntPtr hWnd, int hWndInsertAfter, int x, int y, int cX, int cY,
+        public static extern IntPtr SetWindowPos(IntPtr hWnd, int hWndInsertAfter, int x, int y, int cX, int cY,
             int wFlags);
 
         [DllImport("user32.dll")]
-        internal static extern bool ShowWindow(IntPtr hWnd, uint nCmdShow);
+        public static extern bool ShowWindow(IntPtr hWnd, uint nCmdShow);
 
 
         [DllImport("wtsapi32.dll")]
-        internal static extern void WTSCloseServer(IntPtr hServer);
+        public static extern void WTSCloseServer(IntPtr hServer);
 
         [DllImport("wtsapi32.dll")]
-        internal static extern int WTSEnumerateSessions(
+        public static extern int WTSEnumerateSessions(
             IntPtr hServer,
             [MarshalAs(UnmanagedType.U4)] int reserved,
             [MarshalAs(UnmanagedType.U4)] int version,
@@ -212,58 +212,58 @@ namespace XiangJiang.Windows.Api.Core
             [MarshalAs(UnmanagedType.U4)] ref int pCount);
 
         [DllImport("wtsapi32.dll")]
-        internal static extern void WTSFreeMemory(IntPtr pMemory);
+        public static extern void WTSFreeMemory(IntPtr pMemory);
 
 
         [DllImport("wtsapi32.dll")]
-        internal static extern IntPtr WTSOpenServer([MarshalAs(UnmanagedType.LPStr)] string pServerName);
+        public static extern IntPtr WTSOpenServer([MarshalAs(UnmanagedType.LPStr)] string pServerName);
 
         [DllImport("Wtsapi32.dll")]
-        internal static extern bool WTSQuerySessionInformation(
+        public static extern bool WTSQuerySessionInformation(
             IntPtr hServer, int sessionId, WTS_INFO_CLASS wtsInfoClass, out IntPtr ppBuffer, out uint pBytesReturned);
 
         [DllImport("WTSAPI32.DLL", SetLastError = true, CharSet = CharSet.Auto)]
-        internal static extern bool WTSQueryUserToken(int sessionId, out IntPtr token);
+        public static extern bool WTSQueryUserToken(int sessionId, out IntPtr token);
 
 
         [DllImport("user32.dll", SetLastError = true)]
-        internal static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);
+        public static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);
 
         [DllImport("user32.dll")]
-        internal static extern uint GetWindowThreadProcessId(IntPtr hWnd, IntPtr ProcessId);
+        public static extern uint GetWindowThreadProcessId(IntPtr hWnd, IntPtr ProcessId);
 
         [DllImport("kernel32.dll")]
-        internal static extern uint GetCurrentThreadId();
+        public static extern uint GetCurrentThreadId();
 
         [DllImport("user32.dll")]
-        internal static extern bool AttachThreadInput(uint idAttach, uint idAttachTo, bool fAttach);
+        public static extern bool AttachThreadInput(uint idAttach, uint idAttachTo, bool fAttach);
 
         [DllImport("user32.dll", SetLastError = true)]
-        internal static extern bool BringWindowToTop(IntPtr hWnd);
+        public static extern bool BringWindowToTop(IntPtr hWnd);
 
         [DllImport("user32.dll", SetLastError = true)]
-        internal static extern bool BringWindowToTop(HandleRef hWnd);
+        public static extern bool BringWindowToTop(HandleRef hWnd);
 
 
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
-        internal static extern bool IsIconic(IntPtr hWnd);
+        public static extern bool IsIconic(IntPtr hWnd);
 
         [DllImport("wtsapi32.dll")]
         public static extern void WTSFreeMemoryEx(WTS_TYPE_CLASS wtsTypeClass, IntPtr pMemory, uint numberOfEntries
         );
 
         [DllImport("userenv.dll", SetLastError = true, CharSet = CharSet.Auto)]
-        internal static extern bool CreateEnvironmentBlock(ref IntPtr lpEnvironment, IntPtr hToken, bool bInherit);
+        public static extern bool CreateEnvironmentBlock(ref IntPtr lpEnvironment, IntPtr hToken, bool bInherit);
 
         [DllImport("ADVAPI32.DLL", SetLastError = true, CharSet = CharSet.Auto)]
-        internal static extern bool CreateProcessAsUser(IntPtr hToken, string lpApplicationName, string lpCommandLine,
+        public static extern bool CreateProcessAsUser(IntPtr hToken, string lpApplicationName, string lpCommandLine,
             IntPtr lpProcessAttributes, IntPtr lpThreadAttributes,
             bool bInheritHandles, uint dwCreationFlags, IntPtr lpEnvironment, string lpCurrentDirectory,
             ref StartupInfoEx lpStartupInfo, out ProcessInformation lpProcessInformation);
 
         [DllImport("advapi32.dll", SetLastError = true)]
-        internal static extern bool GetTokenInformation(
+        public static extern bool GetTokenInformation(
             IntPtr tokenHandle,
             TokenInformationClass tokenInformationClass,
             IntPtr tokenInformation,
@@ -271,16 +271,19 @@ namespace XiangJiang.Windows.Api.Core
             out int returnLength);
 
         [DllImport("advapi32", CharSet = CharSet.Auto, SetLastError = true)]
-        internal static extern bool ConvertSidToStringSid(
+        public static extern bool ConvertSidToStringSid(
             IntPtr pSid,
             out IntPtr ptrSid);
 
         [DllImport("kernel32.dll")]
-        internal static extern IntPtr LocalFree(IntPtr hMem);
+        public static extern IntPtr LocalFree(IntPtr hMem);
 
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
-        internal static extern bool DeleteProcThreadAttributeList(IntPtr lpAttributeList);
+        public static extern bool DeleteProcThreadAttributeList(IntPtr lpAttributeList);
+
+        [DllImport("wtsapi32.dll", SetLastError = true)]
+        public static extern bool WTSDisconnectSession(IntPtr hServer, int sessionId, bool bWait);
         #endregion Methods
     }
 }

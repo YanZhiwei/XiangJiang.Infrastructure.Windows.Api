@@ -8,12 +8,12 @@
         <FileVersion>2.0.0.0</FileVersion>
         <Authors>YanZhiwei</Authors>
         <Product>XiangJiang</Product>
-        <Description>Windows Api tool library,using the document: https://github.com/YanZhiwei/XiangJiang.Infrastructure.Windows.Api/wiki; Welcome to pull request or star.</Description>
+        <Description>Windows Api开发辅助类，欢迎PR和Star</Description>
         <Copyright>Copyright YanZhiwei 2021</Copyright>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/YanZhiwei/XiangJiang.Infrastructure.Windows.Api</PackageProjectUrl>
         <RepositoryUrl>https://github.com/YanZhiwei/XiangJiang.Infrastructure.Windows.Api</RepositoryUrl>
-        <Version>2.0.5-beta-1</Version>
+        <Version>2.0.5-beta-2</Version>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="XiangJiang" Version="2.0.0" />
